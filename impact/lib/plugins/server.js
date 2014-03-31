@@ -48,7 +48,7 @@ ig.module(
             for (var i in this.clients)
                 this.emit(this.clients[i], key, data);
         },
-        clientConnected: function(socket) { 
+        clientConnected: function(socket) {
             console.log('[INFO] Client connected: ' + socket.id);
             this.clients[socket.id] = socket;
             // Each client needs its own input class.
@@ -63,11 +63,11 @@ ig.module(
             });
             this.broadcast('client.connect', { id: socket.id });
         },
-        clientReconnected: function(socket) { 
+        clientReconnected: function(socket) {
             console.log('[INFO] Client reconnected: ' + socket.id);
             this.broadcast('client.reconnect', { id: socket.id });
         },
-        clientDisconnected: function(socket) { 
+        clientDisconnected: function(socket) {
             console.log('[INFO] Client disconnected: ' + socket.id);
             this.broadcast('client.disconnect', { id: socket.id });
             this.clients[socket.id] = undefined;
@@ -94,10 +94,10 @@ ig.module(
         entityMove: function(entity, toSocket) {
             var pos = entity.getPos();
             var data = {
-                name: entity.name, 
-                x: pos.x, 
-                y: pos.y, 
-                a: pos.a, 
+                name: entity.name,
+                x: pos.x,
+                y: pos.y,
+                a: pos.a,
                 anim: entity.anim
             };
             var key = 'entity.move';
@@ -117,7 +117,7 @@ ig.module(
             for (var i in global)
                 if (global[i] == classObj)
                     key = i;
-            return key; 
+            return key;
         }
     });
 
@@ -155,9 +155,9 @@ ig.module(
         // simple callback when this entity is killed.
         killed: function(ent) { },
         // Stub the currentAnim property
-        currentAnim: { 
-            angle: 0, 
-            update: function() { }, 
+        currentAnim: {
+            angle: 0,
+            update: function() { },
             draw: function() { }
         },
         init: function(x, y, settings) {
@@ -173,7 +173,7 @@ ig.module(
                 this.anim = '';
             }
             this.parent(x, y, settings);
-        }, 
+        },
         spawn: function(type, x, y, settings) {
             var ent = ig.game.spawnEntity(type, x, y, settings);
 
@@ -242,7 +242,7 @@ ig.module(
             ig.server.broadcast('system.set-game', { class: key });
         },
         setServer: function(serverClass) {
-            ig.server = new (serverClass)();	
+            ig.server = new (serverClass)();
         },
         run: function() {
             this.parent();
@@ -261,7 +261,7 @@ ig.module(
         ig.soundManager = new ig.SoundManager();
         ig.music = new ig.Music();
         ig.ready = true;
-        
+
         var loader = new (loaderClass || ig.Loader)(gameClass, ig.resources);
         setTimeout(function() {
             loader.load();
