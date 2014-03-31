@@ -1,7 +1,5 @@
 .DS_Store
 impact/lib/impact
 public/index.ejs
-server/config.js
-server/start.js
 node_modules/*
 npm-debug.log
