@@ -141,8 +141,6 @@ ig.module(
     });
 
     ig.Entity.inject({
-        // simple callback when this entity is killed.
-        killed: function(ent) { },
         // Stub the currentAnim property
         currentAnim: {
             angle: 0,
@@ -191,10 +189,6 @@ ig.module(
                 a: this.currentAnim ? this.currentAnim.angle : 0,
                 anim: this.anim
             };
-        },
-        kill: function() {
-            this.parent();
-            this.killed(this);
         }
     });
 
