@@ -1,6 +1,6 @@
 {
-    "name" : "impact-crater",
-    "version" : "0.0.2",
+    "name" : "node-impact-server",
+    "version" : "0.0.1",
     "dependencies" : {
         "socket.io" : "0.9.16",
         "express": "3.4.4",
