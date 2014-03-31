@@ -13,9 +13,6 @@ var impactPath = root + '/' + config.impact;
 var impactLibPath = impactPath + '/lib';
 var publicPath = root + '/' + config.assets;
 
-if (!fs.existsSync(publicPath + '/index.ejs'))
-    throw "Missing index.ejs. Run 'cp public/index.ejs.example public/index.ejs'.";
-
 // Alter the env to allow impact
 // to run without DOM interaction.
 var Canvas = function() {
@@ -83,8 +80,5 @@ ig.io.set('log level', 1);
 // Setup routes and asset paths
 app.use(express.static(publicPath));
 app.use('/impact', express.static(impactPath));
-app.get('/', function(req, res) {
-    res.render(publicPath + '/index.ejs', { config: config });
-});
 
 require(impactLibPath + '/game/main.js');
