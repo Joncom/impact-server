@@ -11,7 +11,6 @@ try {
 var root = path.dirname(__dirname);
 var impactPath = root + '/' + config.impact;
 var impactLibPath = impactPath + '/lib';
-var publicPath = root + '/' + config.assets;
 
 // Alter the env to allow impact
 // to run without DOM interaction.
