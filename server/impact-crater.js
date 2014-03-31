@@ -77,8 +77,4 @@ var server = app.listen(config.port);
 ig.io = require('socket.io').listen(server);
 ig.io.set('log level', 1);
 
-// Setup routes and asset paths
-app.use(express.static(publicPath));
-app.use('/impact', express.static(impactPath));
-
 require(impactLibPath + '/game/main.js');
