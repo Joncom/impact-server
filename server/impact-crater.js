@@ -80,9 +80,6 @@ var server = app.listen(config.port);
 ig.io = require('socket.io').listen(server);
 ig.io.set('log level', 1);
 
-// Setup the latency checking
-ig.latency = require(__dirname + '/latency');
-
 // Setup routes and asset paths
 app.use(express.static(publicPath));
 app.use('/impact', express.static(impactPath));
