@@ -104,12 +104,6 @@ ig.module(
             if (toSocket) this.emit(toSocket, key, data);
             else this.broadcast(key, data);
         },
-        entityRemove: function(entity, toSocket) {
-            var data = { name: entity.name };
-            var key = 'entity.remove';
-            if (toSocket) this.emit(toSocket, key, data);
-            else this.broadcast(key, data);
-        },
         classToString: function(classObj) {
             // Node has a relatively thin global object so
             // this is nowhere as stressful as the browser-side.
@@ -143,11 +137,6 @@ ig.module(
             }
             ig.server.entityCreate(key, ent.pos.x, ent.pos.y, settings);
             return ent;
-        },
-        removeEntity: function(entity) {
-            if (entity instanceof ig.Entity)
-                ig.server.entityRemove(entity);
-            this.parent(entity);
         }
     });
 
