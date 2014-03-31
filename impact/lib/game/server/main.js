@@ -9,15 +9,6 @@ ig.module(
 )
 .defines(function() {
 
-    // This handles all the network logic and is now seperated from the game class.
-    MyServer = Server.extend({
-        clientConnected: function(socket) {
-            // Must call the parent class to intialize the network functionality.
-            this.parent(socket);
-            ig.game.spawnEntity(EntityPlayer, 50, 50, { socket: socket });
-        }
-    });
-
     MyGame = ig.Game.extend({
         timer: null,
         freq: 3,
@@ -28,6 +19,10 @@ ig.module(
             ig.game.spawnEntity(EntityDrone, 300, 300);
             ig.game.spawnEntity(EntityDrone, 400, 400);
             this.timer = new ig.Timer(1/this.freq);
+
+            ig.io.sockets.on('connection', function(socket) {
+                console.log("Client " + socket.id + " connected.");
+            });
         },
 
         update: function() {

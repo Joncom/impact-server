@@ -9,36 +9,6 @@ ig.module(
     'impact.system'
 )
 .defines(function() {
-    Server = ig.Class.extend({
-        clients: { },
-        init: function() {
-            var self = this;
-            ig.io.sockets.on('connection', function(socket) {
-
-                console.log("Client " + socket.id + " connected.");
-
-                socket.on('disconnect', function() {
-                    console.log("Client " + socket.id + " disconnected.");
-                })
-
-                .on('reconnect', function() {
-                    console.log("Client " + socket.id + " reconnected.");
-                })
-
-                .on('input.event', function(obj) {
-                    socket.input['set_' + obj.type](obj.action);
-                })
-            });
-        },
-        emit: function(to, key, data) {
-            if (!to || !to.emit) return;
-            return to.emit(key, data);
-        },
-        broadcast: function(key, data) {
-            for (var i in this.clients)
-                this.emit(this.clients[i], key, data);
-        }
-    });
 
     // No need to loads images, etc.
     ig.Loader.inject({
