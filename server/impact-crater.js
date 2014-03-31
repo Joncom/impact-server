@@ -94,7 +94,7 @@ module.exports = {
     io: ig.io,
     // Start a game
     start: function() {
-        require(impactLibPath + '/game/server/main.js');
+        require(impactLibPath + '/game/main.js');
     },
     beforePageLoad: function(req, res) { }
 };

@@ -1,5 +1,5 @@
 ig.module(
-	'game.server.main'
+	'game.main'
 )
 .requires(
     'plugins.server',
