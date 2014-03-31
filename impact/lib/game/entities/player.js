@@ -1,4 +1,4 @@
-ig.module('game.server.entities.player')
+ig.module('game.entities.player')
 .requires(
     'plugins.server'
 )

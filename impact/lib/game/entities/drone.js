@@ -1,4 +1,4 @@
-ig.module('game.server.entities.drone')
+ig.module('game.entities.drone')
 .requires(
     'plugins.server'
 )

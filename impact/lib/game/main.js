@@ -4,8 +4,8 @@ ig.module(
 .requires(
     'plugins.server',
     'game.levels.field',
-    'game.server.entities.player',
-    'game.server.entities.drone'
+    'game.entities.player',
+    'game.entities.drone'
 )
 .defines(function() {
 
