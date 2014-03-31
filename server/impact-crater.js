@@ -87,14 +87,4 @@ app.get('/', function(req, res) {
     res.render(publicPath + '/index.ejs', { config: config });
 });
 
-module.exports = {
-    config: config,
-    ig: ig,
-    web: app,
-    io: ig.io,
-    // Start a game
-    start: function() {
-        require(impactLibPath + '/game/main.js');
-    },
-    beforePageLoad: function(req, res) { }
-};
+require(impactLibPath + '/game/main.js');
