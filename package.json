@@ -2,8 +2,7 @@
     "name" : "node-impact-server",
     "version" : "0.0.1",
     "dependencies" : {
-        "socket.io" : "0.9.16",
-        "ejs": "0.8.4"
+        "socket.io" : "0.9.16"
     },
     "scripts": {
         "start": "node server/server.js"
