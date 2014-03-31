@@ -9,8 +9,7 @@ try {
 
 // Setup paths
 var root = path.dirname(__dirname);
-var impactPath = root + '/' + config.impact;
-var impactLibPath = impactPath + '/lib';
+var impactLibPath = root + '/lib';
 
 // Alter the env to allow impact
 // to run without DOM interaction.
