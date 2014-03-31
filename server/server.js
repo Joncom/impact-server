@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 
 try {
-    var config = require(__dirname + '/config.js');
+    var config = require(__dirname + '/../config.js');
 } catch (err) {
     throw "Missing config.js. Run 'cp server/config.js.example server/config.js'.";
 }
