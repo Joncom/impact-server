@@ -19,10 +19,10 @@ if (!fs.existsSync(publicPath + '/index.ejs'))
 // Alter the env to allow impact
 // to run without DOM interaction.
 var Canvas = function() {
-    return { 
+    return {
         addEventListener: function() { },
         style: { },
-        getContext: function() { 
+        getContext: function() {
             // This is the context
             return {
                 save: function() { },
@@ -45,18 +45,18 @@ var Canvas = function() {
 global.window = global;
 global.ImpactMixin = {
     module: function() { return ig; },
-    requires: function() { 
+    requires: function() {
         var requires = Array.prototype.slice.call(arguments);
         // Go ahead and require the proper files
         requires.forEach(function(name) {
             // Ignore any dom ready type stuff on the server.
             if (name == 'dom.ready') return;
             var path = name.replace(/\./g, '/');
-            require(impactLibPath + '/' + path);    
+            require(impactLibPath + '/' + path);
         });
-        return ig; 
+        return ig;
     },
-    defines: function(func) { 
+    defines: function(func) {
         func(); // immediately execute
     },
     $: function(selector) {
