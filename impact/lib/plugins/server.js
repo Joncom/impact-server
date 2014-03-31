@@ -102,12 +102,6 @@ ig.module(
     });
 
     ig.Entity.inject({
-        // Stub the currentAnim property
-        currentAnim: {
-            angle: 0,
-            update: function() { },
-            draw: function() { }
-        },
         init: function(x, y, settings) {
             var socket = settings.socket || undefined;
             settings.socket = undefined;
