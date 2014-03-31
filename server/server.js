@@ -67,11 +67,8 @@ window.HTMLElement = Canvas;
 require(impactLibPath + '/impact/impact.js');
 
 // Setup the webserver
-var express = require('express');
 var http = require('http');
-var app = express();
-app.enable("jsonp callback");
-var server = app.listen(config.port);
+var server = http.createServer().listen(config.port);
 // Setup the websockets
 ig.io = require('socket.io').listen(server);
 ig.io.set('log level', 1);
