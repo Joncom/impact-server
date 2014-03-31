@@ -101,31 +101,6 @@ ig.module(
         }
     });
 
-    ig.Game.inject({
-        spawnEntity: function(type, x, y, settings) {
-            // Find the key for the entity type
-            var key = ig.server.classToString(type);
-            settings = settings || { };
-            // Give the entity a unique name. This is the entity id.
-            // The server will tell the clients how to move entities based on this id.
-            settings.name = ig.Entity._lastId + 1;
-            settings.classType = key;
-            // If socket is provided then set the owner id
-            if (settings.socket)
-                settings.owner = settings.socket.id;
-            var ent = this.parent(global[key], x, y, settings);
-            // Remove the socket reference before sending it to the clients.
-            var socket = null;
-            if (settings.socket) {
-                socket = settings.socket;
-                settings.owner = socket.id;
-                delete settings.socket;
-            }
-            ig.server.entityCreate(key, ent.pos.x, ent.pos.y, settings);
-            return ent;
-        }
-    });
-
     ig.Entity.inject({
         // Stub the currentAnim property
         currentAnim: {
