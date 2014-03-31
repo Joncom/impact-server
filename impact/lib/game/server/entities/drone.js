@@ -4,9 +4,9 @@ ig.module('game.server.entities.drone')
 )
 .defines(function() {
 
-    EntityDrone = EntityServer.extend({
+    EntityDrone = ig.Entity.extend({
         size: { x: 32, y: 32 },
-        speed: 20, 
+        speed: 20,
         init: function(x, y, settings) {
             this.parent(x, y, settings);
 

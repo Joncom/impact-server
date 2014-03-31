@@ -145,13 +145,13 @@ ig.module(
             return ent;
         },
         removeEntity: function(entity) {
-            if (entity instanceof EntityServer)
+            if (entity instanceof ig.Entity)
                 ig.server.entityRemove(entity);
             this.parent(entity);
         }
     });
 
-    EntityServer = ig.Entity.extend({
+    ig.Entity.inject({
         // simple callback when this entity is killed.
         killed: function(ent) { },
         // Stub the currentAnim property

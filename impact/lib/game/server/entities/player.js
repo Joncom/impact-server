@@ -3,7 +3,7 @@ ig.module('game.server.entities.player')
     'plugins.server'
 )
 .defines(function() {
-    EntityPlayer = EntityServer.extend({
+    EntityPlayer = ig.Entity.extend({
         speed: 100,
         init: function(x, y, settings) {
             this.parent(x, y, settings);
@@ -25,7 +25,7 @@ ig.module('game.server.entities.player')
             } else if (this.input.state('down')) {
                 this.vel.y = this.speed;
                 this.anim = 'down';
-            } else 
+            } else
                 this.vel.y = 0;
 
             if (this.input.state('right')) {
