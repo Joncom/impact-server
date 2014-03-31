@@ -115,7 +115,7 @@ ig.module(
         }
     });
 
-    GameServer = ig.Game.extend({
+    ig.Game.inject({
         spawnEntity: function(type, x, y, settings) {
             // Find the key for the entity type
             var key = ig.server.classToString(type);

@@ -19,7 +19,7 @@ ig.module(
         }
     });
 
-    MyGame = GameServer.extend({
+    MyGame = ig.Game.extend({
         timer: null,
         freq: 3,
         init: function() {
