@@ -10,7 +10,6 @@ ig.module(
 .defines(function() {
 
     // This handles all the network logic and is now seperated from the game class.
-    // You can access this instance at ig.server.
     MyServer = Server.extend({
         clientConnected: function(socket) {
             // Must call the parent class to intialize the network functionality.
@@ -41,6 +40,5 @@ ig.module(
     });
 
     ig.main('#canvas', MyGame, 60, 320, 240, 2);
-    ig.system.setServer(MyServer);
 
 });

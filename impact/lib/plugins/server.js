@@ -80,30 +80,6 @@ ig.module(
         }
     });
 
-    // System needs to reset client inputs.
-    ig.System.inject({
-        gameCnt: 0,
-        setGame: function(gameClass) {
-            this.parent(gameClass);
-            this.gameCnt++;
-            if (this.gameCnt <= 1) return;
-
-            var key = ig.server.classToString(gameClass);
-            ig.server.broadcast('system.set-game', { class: key });
-        },
-        setServer: function(serverClass) {
-            ig.server = new (serverClass)();
-        },
-        run: function() {
-            this.parent();
-            // Clear all the inputs for the sockets.
-            for (var i in ig.server.clients) {
-                if (ig.server.clients[i] && ig.server.clients[i].input)
-                    ig.server.clients[i].input.clearPressed();
-            }
-        }
-    });
-
     // Rewrite this function to delay and allow the server class to setup.
     ig.main = function(canvasId, gameClass, fps, width, height, scale, loaderClass) {
         ig.system = new ig.System(canvasId, fps, width, height, scale || 1);
