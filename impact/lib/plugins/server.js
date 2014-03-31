@@ -101,43 +101,6 @@ ig.module(
         }
     });
 
-    ig.Entity.inject({
-        init: function(x, y, settings) {
-            var socket = settings.socket || undefined;
-            settings.socket = undefined;
-            // Cache the settings so when a client joins
-            // we can pass the same settings.
-            this._settings = settings;
-            if (socket) {
-                this.socket = socket;
-                this.input = socket.input;
-                this.screen = socket.screen;
-                this.anim = '';
-            }
-            this.parent(x, y, settings);
-        },
-        spawn: function(type, x, y, settings) {
-            var ent = ig.game.spawnEntity(type, x, y, settings);
-
-            if (this.owner) {
-                ent.owner = this.owner;
-            }
-            return ent;
-        },
-        update: function() {
-            this.last = this.getPos();
-            this.parent();
-        },
-        getPos: function() {
-            return {
-                x: this.pos.x,
-                y: this.pos.y,
-                a: this.currentAnim ? this.currentAnim.angle : 0,
-                anim: this.anim
-            };
-        }
-    });
-
     // No need to loads images, etc.
     ig.Loader.inject({
         load: function() {
