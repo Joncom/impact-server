@@ -2,13 +2,13 @@ var path = require('path');
 var fs = require('fs');
 
 try {
-    var config = require(__dirname + '/../config.js');
+    var config = require('./config.js');
 } catch (err) {
     throw "Missing config.js. Run 'cp server/config.js.example server/config.js'.";
 }
 
 // Setup paths
-var root = path.dirname(__dirname);
+var root = __dirname;
 var impactLibPath = root + '/lib';
 
 // Alter the env to allow impact
