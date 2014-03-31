@@ -59,7 +59,6 @@ ig.module(
             var self = this;
             ig.game.entities.forEach(function(ent) {
                 self.entityCreate(ent.classType, ent.pos.x, ent.pos.y, ent._settings, socket);
-                self.entityMove(ent, socket);
             });
             this.broadcast('client.connect', { id: socket.id });
         },
@@ -88,19 +87,6 @@ ig.module(
         entityCreate: function(typeStr, x, y, settings, toSocket) {
             var data = { type: typeStr, x: x, y: y, settings: settings };
             var key = 'entity.create';
-            if (toSocket) this.emit(toSocket, key, data);
-            else this.broadcast(key, data);
-        },
-        entityMove: function(entity, toSocket) {
-            var pos = entity.getPos();
-            var data = {
-                name: entity.name,
-                x: pos.x,
-                y: pos.y,
-                a: pos.a,
-                anim: entity.anim
-            };
-            var key = 'entity.move';
             if (toSocket) this.emit(toSocket, key, data);
             else this.broadcast(key, data);
         },
@@ -172,15 +158,6 @@ ig.module(
         update: function() {
             this.last = this.getPos();
             this.parent();
-        },
-        draw: function() {
-            this.parent();
-            var cur = this.getPos();
-            if (this.last.x    != cur.x ||
-                this.last.y    != cur.y ||
-                this.last.a    != cur.a ||
-                this.last.anim != cur.anim)
-                ig.server.entityMove(this);
         },
         getPos: function() {
             return {
