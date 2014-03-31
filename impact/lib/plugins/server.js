@@ -47,15 +47,6 @@ ig.module(
         broadcast: function(key, data) {
             for (var i in this.clients)
                 this.emit(this.clients[i], key, data);
-        },
-        classToString: function(classObj) {
-            // Node has a relatively thin global object so
-            // this is nowhere as stressful as the browser-side.
-            var key = '';
-            for (var i in global)
-                if (global[i] == classObj)
-                    key = i;
-            return key;
         }
     });
 
