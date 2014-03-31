@@ -3,7 +3,6 @@
     "version" : "0.0.1",
     "dependencies" : {
         "socket.io" : "0.9.16",
-        "express": "3.4.4",
         "ejs": "0.8.4"
     },
     "scripts": {
