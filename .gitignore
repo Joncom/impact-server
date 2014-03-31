@@ -1,7 +1,5 @@
 .DS_Store
-impact/lib/game
 impact/lib/impact
-impact/media
 public/index.ejs
 server/config.js
 server/start.js
