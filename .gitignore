@@ -1,6 +1,4 @@
 .DS_Store
 lib/impact
-impact/lib/impact
-public/index.ejs
 node_modules/*
 npm-debug.log
