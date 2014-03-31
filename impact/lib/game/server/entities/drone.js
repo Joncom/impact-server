@@ -7,6 +7,8 @@ ig.module('game.server.entities.drone')
     EntityDrone = ig.Entity.extend({
         size: { x: 32, y: 32 },
         speed: 20,
+        timer: null,
+        freq: 1,
         init: function(x, y, settings) {
             this.parent(x, y, settings);
 
@@ -16,10 +18,19 @@ ig.module('game.server.entities.drone')
                 self.vel.x = Math.floor(Math.random() * self.speed - half);
                 self.vel.y = Math.floor(Math.random() * self.speed - half);
             }, 2000);
+
+            this.timer = new ig.Timer(1/this.freq);
         },
         kill: function() {
             this.parent();
             clearInterval(this.moveInterval);
+        },
+        update: function() {
+            this.parent();
+            if(this.timer.delta() >= 0) {
+                this.timer.reset();
+                console.log("Drone " + this.id + " says hi.");
+            }
         }
     });
 
