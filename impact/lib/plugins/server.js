@@ -29,16 +29,6 @@ ig.module(
                     socket.input['set_' + obj.type](obj.action);
                 })
             });
-            // Every second calculate the average ping for clients.
-            this.clientInterval = setInterval(function() {
-                var total = i = 0;
-                for (var key in self.clients) {
-                    if (!self.clients[key]) continue;
-                    total += self.clients[key].latency.avg;
-                    i++;
-                }
-                self.clientAvgPing = parseInt(total / i);
-            }, 1000);
         },
         emit: function(to, key, data) {
             if (!to || !to.emit) return;
