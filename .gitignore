@@ -2,3 +2,4 @@
 lib/impact
 node_modules/*
 npm-debug.log
+config.js
