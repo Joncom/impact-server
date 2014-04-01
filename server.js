@@ -4,7 +4,7 @@ var fs = require('fs');
 try {
     var config = require('./config.js');
 } catch (err) {
-    throw "Missing config.js. Run 'cp server/config.js.example server/config.js'.";
+    throw "Missing config.js. Run 'cp config.js.example config.js'.";
 }
 
 // Setup paths
